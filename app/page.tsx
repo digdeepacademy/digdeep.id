@@ -1,16 +1,17 @@
 import dynamic from "next/dynamic";
-import About from "@/components/About";
-import Contact from "@/components/Contact";
+import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
+import Gallery from "@/components/Gallery";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import Programs from "@/components/Programs";
-import Why from "@/components/Why";
+import Services from "@/components/Services";
+import TrainingProcess from "@/components/TrainingProcess";
+import TrustedBy from "@/components/TrustedBy";
+import WhyChooseUs from "@/components/WhyChooseUs";
 
 const Testimonials = dynamic(() => import("@/components/Testimonials"), {
-  loading: () => <section className="testimonials section" aria-hidden="true" />,
+  loading: () => <section className="section" aria-hidden="true" />,
 });
-
 const ScrollToTop = dynamic(() => import("@/components/ScrollToTop"));
 
 export default function Home() {
@@ -19,11 +20,13 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <About />
-        <Programs />
-        <Why />
+        <TrustedBy />
+        <Services />
+        <WhyChooseUs />
+        <TrainingProcess />
         <Testimonials />
-        <Contact />
+        <Gallery />
+        <CTASection />
       </main>
       <Footer />
       <ScrollToTop />

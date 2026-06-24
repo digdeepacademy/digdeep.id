@@ -1,158 +1,221 @@
 export const navLinks = [
   { href: "#beranda", label: "Beranda" },
-  { href: "#tentang", label: "Tentang" },
-  { href: "#program", label: "Program" },
+  { href: "#layanan", label: "Layanan" },
   { href: "#keunggulan", label: "Keunggulan" },
+  { href: "#proses", label: "Proses" },
   { href: "#testimoni", label: "Testimoni" },
+  { href: "#galeri", label: "Galeri" },
 ] as const;
 
 export const heroStats = [
-  { count: 5000, suffix: "+", label: "Alumni Aktif" },
-  { count: 98, suffix: "%", label: "Tingkat Kepuasan" },
-  { count: 50, suffix: "+", label: "Mitra Industri" },
+  { value: "1000+", label: "Alumni Terlatih" },
+  { value: "30+", label: "Partner Institusi" },
+  { value: "50+", label: "Program Corporate" },
+  { value: "15+", label: "AI & Automation Expert" },
 ] as const;
 
-export const aboutFeatures = [
-  {
-    icon: "monitor" as const,
-    color: "magenta" as const,
-    title: "Kurikulum Industri",
-    description: "Materi selalu diperbarui sesuai kebutuhan pasar kerja terkini.",
-  },
-  {
-    icon: "users" as const,
-    color: "orange" as const,
-    title: "Mentor Praktisi",
-    description: "Belajar langsung dari profesional yang aktif di industri.",
-  },
-  {
-    icon: "chart" as const,
-    color: "teal" as const,
-    title: "Karier Terjamin",
-    description: "Dukungan job placement dan jaringan alumni yang luas.",
-  },
+export const trustedPartners = [
+  "Bank Mandiri",
+  "Telkom Indonesia",
+  "Pertamina",
+  "BNI",
+  "PLN",
+  "Kemenkeu",
+  "BUMN Holding",
+  "Universitas Indonesia",
 ] as const;
 
-export const programs = [
+export const services = [
   {
-    id: "web",
-    title: "Full-Stack Web Development",
+    id: "ai-training",
+    title: "AI Training",
     description:
-      "Kuasai HTML, CSS, JavaScript, React, Node.js, dan database. Bangun aplikasi web dari nol hingga deploy.",
-    badge: "Terpopuler",
-    badgeVariant: "default" as const,
-    icon: "code" as const,
-    iconColor: "teal" as const,
-    duration: "6 Bulan",
-    sessions: "24 Sesi Live",
-    progress: 85,
-    progressColor: "teal" as const,
-    featured: false,
-    ctaVariant: "primary" as const,
+      "Pelatihan Artificial Intelligence untuk tim korporat — dari fondasi AI hingga implementasi di bisnis.",
+    icon: "ai" as const,
+    color: "red" as const,
   },
   {
-    id: "uiux",
-    title: "UI/UX Design & Product",
+    id: "excel",
+    title: "Microsoft Excel Training",
     description:
-      "Pelajari riset pengguna, wireframing, prototyping, dan desain sistem. Buat portfolio yang menonjol.",
-    badge: "Rekomendasi",
-    badgeVariant: "featured" as const,
-    icon: "design" as const,
-    iconColor: "magenta" as const,
-    duration: "4 Bulan",
-    sessions: "20 Sesi Live",
-    progress: 92,
-    progressColor: "magenta" as const,
+      "Kuasai Excel tingkat lanjut untuk analisis data, reporting, dan otomatisasi spreadsheet profesional.",
+    icon: "excel" as const,
+    color: "green" as const,
+  },
+  {
+    id: "data-analytics",
+    title: "Data Analytics Training",
+    description:
+      "Bangun kapabilitas analitik tim Anda dengan metode berbasis data untuk pengambilan keputusan strategis.",
+    icon: "analytics" as const,
+    color: "yellow" as const,
+  },
+  {
+    id: "power-bi",
+    title: "Power BI Training",
+    description:
+      "Visualisasi data interaktif dan dashboard enterprise untuk monitoring KPI dan business intelligence.",
+    icon: "powerbi" as const,
+    color: "red" as const,
+  },
+  {
+    id: "n8n",
+    title: "Workflow Automation dengan n8n",
+    description:
+      "Otomatisasi proses bisnis tanpa coding rumit — integrasikan tools dan tingkatkan efisiensi operasional.",
+    icon: "automation" as const,
+    color: "green" as const,
+  },
+  {
+    id: "ai-agent",
+    title: "AI Agent Development",
+    description:
+      "Bangun AI agent kustom untuk customer service, internal support, dan otomatisasi tugas berulang.",
+    icon: "agent" as const,
+    color: "yellow" as const,
+  },
+  {
+    id: "custom",
+    title: "Custom Corporate Training",
+    description:
+      "Program pelatihan disesuaikan 100% dengan kebutuhan, industri, dan level kompetensi organisasi Anda.",
+    icon: "custom" as const,
+    color: "red" as const,
     featured: true,
-    ctaVariant: "magenta" as const,
-  },
-  {
-    id: "data",
-    title: "Data Science & AI",
-    description:
-      "Analisis data, machine learning, dan AI generatif. Siapkan diri untuk profesi paling diminati era digital.",
-    badge: "Baru",
-    badgeVariant: "default" as const,
-    icon: "data" as const,
-    iconColor: "orange" as const,
-    duration: "8 Bulan",
-    sessions: "32 Sesi Live",
-    progress: 78,
-    progressColor: "orange" as const,
-    featured: false,
-    ctaVariant: "primary" as const,
   },
 ] as const;
 
-export const whyItems = [
+export const whyChooseUs = [
   {
-    number: "01",
-    barColor: "magenta" as const,
-    title: "Metode Belajar Hybrid",
-    description:
-      "Kombinasi sesi live interaktif, materi on-demand, dan project-based learning untuk pemahaman maksimal.",
+    icon: "materials" as const,
+    title: "Materi Pelatihan Dikustomisasi",
+    description: "Kurikulum disesuaikan dengan use case, industri, dan tujuan bisnis perusahaan Anda.",
   },
   {
-    number: "02",
-    barColor: "orange" as const,
-    title: "Project Portfolio Nyata",
-    description:
-      "Setiap peserta menyelesaikan minimal 3 project nyata yang bisa langsung ditampilkan di portfolio profesional.",
+    icon: "trainers" as const,
+    title: "Trainer Ahli Industri",
+    description: "Dibimbing praktisi berpengalaman yang aktif di bidang AI, data, dan transformasi digital.",
   },
   {
-    number: "03",
-    barColor: "teal" as const,
-    title: "Komunitas Alumni Aktif",
-    description:
-      "Bergabung dengan jaringan 5.000+ alumni yang saling mendukung, berbagi lowongan, dan berkolaborasi.",
+    icon: "hands-on" as const,
+    title: "Praktik Langsung (Hands-on)",
+    description: "Pendekatan learning-by-doing dengan workshop interaktif dan studi kasus nyata.",
   },
   {
-    number: "04",
-    barColor: "magenta" as const,
-    title: "Garansi Uang Kembali",
-    description:
-      "Tidak puas dalam 14 hari pertama? Kami kembalikan 100% biaya pendaftaran Anda, tanpa pertanyaan.",
+    icon: "cases" as const,
+    title: "Studi Kasus Nyata",
+    description: "Materi berbasis problem solving dari pengalaman proyek korporat dan institusi.",
+  },
+  {
+    icon: "certification" as const,
+    title: "Sertifikasi",
+    description: "Sertifikat penyelesaian resmi untuk dokumentasi kompetensi dan pelaporan HR.",
+  },
+  {
+    icon: "support" as const,
+    title: "Dukungan Pasca-Pelatihan",
+    description: "Follow-up support, konsultasi, dan akses materi untuk memastikan transfer pembelajaran.",
+  },
+] as const;
+
+export const trainingProcess = [
+  {
+    step: "01",
+    title: "Konsultasi",
+    description: "Diskusi awal kebutuhan pelatihan, tujuan bisnis, dan profil peserta.",
+  },
+  {
+    step: "02",
+    title: "Analisis Kebutuhan",
+    description: "Assessment kompetensi dan gap analysis untuk desain program yang tepat.",
+  },
+  {
+    step: "03",
+    title: "Kustomisasi Materi",
+    description: "Penyusunan kurikulum, modul, dan studi kasus sesuai industri Anda.",
+  },
+  {
+    step: "04",
+    title: "Pelaksanaan Training",
+    description: "Delivery onsite, online, atau hybrid dengan metode interaktif.",
+  },
+  {
+    step: "05",
+    title: "Evaluasi",
+    description: "Pre & post assessment, feedback peserta, dan laporan hasil pelatihan.",
+  },
+  {
+    step: "06",
+    title: "Follow-Up Support",
+    description: "Dukungan pasca-pelatihan untuk memastikan implementasi di tempat kerja.",
   },
 ] as const;
 
 export const testimonials = [
   {
     quote:
-      "D'Academy mengubah hidup saya. Dari nol pengalaman coding, sekarang saya bekerja sebagai Full-Stack Developer di startup unicorn.",
-    initials: "AR",
+      "Program AI Training dari D'Academy membantu tim kami memahami dan mengimplementasikan AI dalam operasional harian. Materinya relevan dan aplikatif.",
+    name: "Budi Santoso",
+    role: "Head of Digital Transformation",
+    company: "PT Telkom Indonesia",
+    initials: "BS",
+  },
+  {
+    quote:
+      "Power BI Training yang diselenggarakan sangat komprehensif. Tim finance kami sekarang bisa membuat dashboard executive dalam waktu singkat.",
+    name: "Dewi Lestari",
+    role: "Finance Director",
+    company: "Bank Mandiri",
+    initials: "DL",
+  },
+  {
+    quote:
+      "Workflow automation dengan n8n mengubah cara tim operasional kami bekerja. Efisiensi meningkat 40% setelah pelatihan.",
     name: "Ahmad Rizki",
-    role: "Full-Stack Developer @ Gojek",
-    avatarColor: "teal" as const,
-    featured: false,
+    role: "Operations Manager",
+    company: "Pertamina",
+    initials: "AR",
   },
   {
     quote:
-      "Program UI/UX-nya sangat komprehensif. Mentor-mentornya sabar dan portfolio yang saya buat langsung diterima di 3 perusahaan besar.",
-    initials: "SN",
+      "Custom corporate training yang disesuaikan dengan kebutuhan BUMN kami sangat profesional. Trainer-nya memahami konteks regulasi dan governance.",
     name: "Siti Nurhaliza",
-    role: "Product Designer @ Tokopedia",
-    avatarColor: "magenta" as const,
-    featured: true,
-  },
-  {
-    quote:
-      "Investasi terbaik yang pernah saya lakukan. Kurikulum Data Science-nya up-to-date dan langsung applicable di pekerjaan saya.",
-    initials: "DP",
-    name: "Dewa Putra",
-    role: "Data Analyst @ BCA Digital",
-    avatarColor: "orange" as const,
-    featured: false,
+    role: "HR Development Manager",
+    company: "PLN",
+    initials: "SN",
   },
 ] as const;
 
-export const ctaPerks = [
-  "Konsultasi karier gratis",
-  "Akses materi preview",
-  "Diskon early bird 20%",
+export const galleryItems = [
+  { id: 1, title: "AI Workshop — Jakarta", category: "AI Training", color: "red" as const },
+  { id: 2, title: "Power BI Dashboard Lab", category: "Power BI", color: "green" as const },
+  { id: 3, title: "Data Analytics Bootcamp", category: "Data Analytics", color: "yellow" as const },
+  { id: 4, title: "n8n Automation Sprint", category: "Automation", color: "green" as const },
+  { id: 5, title: "Excel Advanced — Corporate", category: "Excel", color: "red" as const },
+  { id: 6, title: "AI Agent Development", category: "AI Agent", color: "yellow" as const },
 ] as const;
 
 export const programOptions = [
-  { value: "web", label: "Full-Stack Web Development" },
-  { value: "uiux", label: "UI/UX Design & Product" },
-  { value: "data", label: "Data Science & AI" },
+  { value: "ai", label: "AI Training" },
+  { value: "excel", label: "Microsoft Excel Training" },
+  { value: "analytics", label: "Data Analytics Training" },
+  { value: "powerbi", label: "Power BI Training" },
+  { value: "n8n", label: "Workflow Automation (n8n)" },
+  { value: "ai-agent", label: "AI Agent Development" },
+  { value: "custom", label: "Custom Corporate Training" },
 ] as const;
+
+export const footerLinks = {
+  layanan: [
+    { label: "AI Training", href: "#layanan" },
+    { label: "Data Analytics", href: "#layanan" },
+    { label: "Power BI", href: "#layanan" },
+    { label: "Workflow Automation", href: "#layanan" },
+  ],
+  perusahaan: [
+    { label: "Tentang Kami", href: "#keunggulan" },
+    { label: "Proses Pelatihan", href: "#proses" },
+    { label: "Galeri", href: "#galeri" },
+    { label: "Kontak", href: "#kontak" },
+  ],
+} as const;

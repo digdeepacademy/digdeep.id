@@ -8,20 +8,12 @@ import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { navLinks } from "@/lib/data";
 
-const menuItemVariants = {
-  closed: { opacity: 0, y: -12 },
-  open: { opacity: 1, y: 0 },
-};
-
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("beranda");
-  const [mounted, setMounted] = useState(false);
   const isMobile = useMediaQuery("(max-width: 768px)");
   const reduced = useReducedMotion();
-
-  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -43,100 +35,71 @@ export default function Header() {
       },
       { threshold: 0.3, rootMargin: "-72px 0px -50% 0px" }
     );
-    sections.forEach((section) => observer.observe(section));
+    sections.forEach((s) => observer.observe(s));
     return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
-    if (!mounted || !isMobile) return;
+    if (!isMobile) return;
     document.body.style.overflow = menuOpen ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [menuOpen, isMobile, mounted]);
-
-  const handleNavClick = () => setMenuOpen(false);
-  const showMobileMenu = mounted && isMobile;
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen, isMobile]);
 
   return (
-    <header className={`header ${scrolled ? "scrolled" : ""}`} id="header">
+    <header className={`header ${scrolled ? "scrolled" : ""}`}>
       <nav className="nav container">
-        <Link href="#beranda" className="nav__logo interactive-link" onClick={handleNavClick}>
-          <Image
-            src="/assets/logo.png"
-            alt="D'Academy"
-            className="nav__logo-img"
-            width={140}
-            height={36}
-            priority
-          />
+        <Link href="#beranda" className="nav__logo" onClick={() => setMenuOpen(false)}>
+          <Image src="/assets/logo.png" alt="D'Academy" className="nav__logo-img" width={140} height={36} priority />
         </Link>
 
         <button
           className={`nav__toggle ${menuOpen ? "active" : ""}`}
           aria-label="Toggle menu"
           aria-expanded={menuOpen}
-          onClick={() => setMenuOpen((open) => !open)}
+          onClick={() => setMenuOpen((o) => !o)}
         >
-          <span />
-          <span />
-          <span />
+          <span /><span /><span />
         </button>
 
         <motion.ul
-          className={`nav__menu ${showMobileMenu && menuOpen ? "open" : ""}`}
+          className="nav__menu"
           initial={false}
           animate={
-            showMobileMenu
+            isMobile
               ? menuOpen
                 ? { opacity: 1, y: 0, pointerEvents: "auto" as const }
-                : { opacity: 0, y: -16, pointerEvents: "none" as const }
+                : { opacity: 0, y: -12, pointerEvents: "none" as const }
               : { opacity: 1, y: 0, pointerEvents: "auto" as const }
           }
-          transition={{ duration: reduced ? 0 : 0.28, ease: [0.16, 1, 0.3, 1] }}
-          style={showMobileMenu && !menuOpen ? { visibility: "hidden" } : undefined}
+          transition={{ duration: reduced ? 0 : 0.25 }}
+          style={isMobile && !menuOpen ? { visibility: "hidden" } : undefined}
         >
-          {navLinks.map((link, index) => {
-            const isActive = activeSection === link.href.slice(1);
+          {navLinks.map((link) => {
+            const active = activeSection === link.href.slice(1);
             return (
-              <motion.li
-                key={link.href}
-                variants={menuItemVariants}
-                initial={showMobileMenu && menuOpen && !reduced ? "closed" : false}
-                animate={showMobileMenu && menuOpen && !reduced ? "open" : "open"}
-                transition={{ delay: showMobileMenu && menuOpen ? index * 0.06 : 0, duration: 0.25 }}
-              >
+              <li key={link.href}>
                 <Link
                   href={link.href}
-                  className={`nav__link interactive-link ${isActive ? "active" : ""}`}
-                  onClick={handleNavClick}
+                  className={`nav__link ${active ? "active" : ""}`}
+                  onClick={() => setMenuOpen(false)}
                 >
                   {link.label}
-                  {isActive && (
+                  {active && (
                     <motion.span
                       className="nav__link-indicator"
                       layoutId="nav-indicator"
-                      transition={{ duration: reduced ? 0 : 0.25, ease: [0.16, 1, 0.3, 1] }}
+                      transition={{ duration: reduced ? 0 : 0.25 }}
                     />
                   )}
                 </Link>
-              </motion.li>
+              </li>
             );
           })}
-          <motion.li
-            variants={menuItemVariants}
-            initial={showMobileMenu && menuOpen && !reduced ? "closed" : false}
-            animate={showMobileMenu && menuOpen && !reduced ? "open" : "open"}
-            transition={{ delay: showMobileMenu && menuOpen ? navLinks.length * 0.06 : 0, duration: 0.25 }}
-          >
-            <Link
-              href="#kontak"
-              className="nav__link nav__link--cta interactive-link"
-              onClick={handleNavClick}
-            >
-              Daftar Sekarang
+          <li>
+            <Link href="#kontak" className="nav__link nav__link--cta" onClick={() => setMenuOpen(false)}>
+              Konsultasi Gratis
             </Link>
-          </motion.li>
+          </li>
         </motion.ul>
       </nav>
     </header>

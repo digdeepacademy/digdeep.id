@@ -1,33 +1,25 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const plusJakarta = Plus_Jakarta_Sans({
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
-  variable: "--font-plus-jakarta",
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-inter",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "D'Academy — Akademi Digital Profesional",
+  title: "D'Academy — Corporate Training & Professional Upskilling",
   description:
-    "D'Academy — Akademi digital profesional untuk mengembangkan karier dan keterampilan masa depan Anda.",
-  icons: {
-    icon: "/assets/logo.png",
-  },
+    "Platform pelatihan korporat premium: AI Training, Data Analytics, Power BI, Workflow Automation, dan program upskilling profesional untuk perusahaan dan institusi.",
+  icons: { icon: "/assets/logo.png" },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="id" className={plusJakarta.variable}>
-      <body style={{ fontFamily: "var(--font-plus-jakarta), sans-serif" }}>
-        {children}
-      </body>
+    <html lang="id" className={inter.variable}>
+      <body>{children}</body>
     </html>
   );
 }
