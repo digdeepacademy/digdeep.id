@@ -1,6 +1,9 @@
 "use client";
 
-import { useEffect, useRef, type ReactNode } from "react";
+import { motion, useInView } from "framer-motion";
+import { useRef, type ReactNode } from "react";
+import { fadeUp, getInViewOptions, getTransition } from "@/lib/motion";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 type RevealProps = {
   children: ReactNode;
@@ -10,30 +13,19 @@ type RevealProps = {
 
 export default function Reveal({ children, className = "", delay = 0 }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    el.classList.add("reveal");
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => el.classList.add("visible"), delay);
-          observer.unobserve(el);
-        }
-      },
-      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [delay]);
+  const reduced = useReducedMotion();
+  const isInView = useInView(ref, getInViewOptions(reduced));
 
   return (
-    <div ref={ref} className={className}>
+    <motion.div
+      ref={ref}
+      className={className}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      variants={fadeUp}
+      transition={{ ...getTransition(reduced), delay: reduced ? 0 : delay / 1000 }}
+    >
       {children}
-    </div>
+    </motion.div>
   );
 }

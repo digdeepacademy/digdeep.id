@@ -1,6 +1,13 @@
+"use client";
+
+import { motion, useInView } from "framer-motion";
 import Link from "next/link";
+import { useRef } from "react";
 import Reveal from "@/components/Reveal";
+import TiltCard from "@/components/TiltCard";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { programs } from "@/lib/data";
+import { getInViewOptions } from "@/lib/motion";
 
 function ProgramIcon({ type }: { type: (typeof programs)[number]["icon"] }) {
   switch (type) {
@@ -30,6 +37,37 @@ function ProgramIcon({ type }: { type: (typeof programs)[number]["icon"] }) {
   }
 }
 
+function ProgressBar({
+  progress,
+  color,
+}: {
+  progress: number;
+  color: "teal" | "magenta" | "orange";
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const reduced = useReducedMotion();
+  const isInView = useInView(ref, getInViewOptions(reduced));
+
+  return (
+    <div className="program-card__progress" ref={ref}>
+      <div className="program-card__progress-label">
+        <span>Progress Kurikulum</span>
+        <span>{progress}%</span>
+      </div>
+      <div className="program-card__progress-bar">
+        <motion.div
+          className={`program-card__progress-fill ${
+            color !== "teal" ? `program-card__progress-fill--${color}` : ""
+          }`}
+          initial={{ width: reduced ? `${progress}%` : "0%" }}
+          animate={{ width: isInView ? `${progress}%` : reduced ? `${progress}%` : "0%" }}
+          transition={{ duration: reduced ? 0 : 1.5, ease: [0.16, 1, 0.3, 1] }}
+        />
+      </div>
+    </div>
+  );
+}
+
 export default function Programs() {
   return (
     <section className="programs section" id="program">
@@ -47,12 +85,15 @@ export default function Programs() {
         <div className="programs__grid">
           {programs.map((program, index) => (
             <Reveal key={program.id} className="reveal-grid-item" delay={index * 80}>
-              <article className={`program-card ${program.featured ? "program-card--featured" : ""}`}>
+              <TiltCard
+                accentColor={program.iconColor}
+                className={`program-card ${program.featured ? "program-card--featured" : ""}`}
+              >
                 <div className={`program-card__icon program-card__icon--${program.iconColor}`}>
                   <ProgramIcon type={program.icon} />
                 </div>
                 <span
-                  className={`program-card__badge ${
+                  className={`program-card__badge program-card__badge--anim ${
                     program.badgeVariant === "featured" ? "program-card__badge--featured" : ""
                   }`}
                 >
@@ -83,29 +124,14 @@ export default function Programs() {
                     Sertifikat
                   </li>
                 </ul>
-                <div className="program-card__progress">
-                  <div className="program-card__progress-label">
-                    <span>Progress Kurikulum</span>
-                    <span>{program.progress}%</span>
-                  </div>
-                  <div className="program-card__progress-bar">
-                    <div
-                      className={`program-card__progress-fill ${
-                        program.progressColor !== "teal"
-                          ? `program-card__progress-fill--${program.progressColor}`
-                          : ""
-                      }`}
-                      style={{ width: `${program.progress}%` }}
-                    />
-                  </div>
-                </div>
+                <ProgressBar progress={program.progress} color={program.progressColor} />
                 <Link
                   href="#kontak"
-                  className={`btn btn--${program.ctaVariant} btn--full`}
+                  className={`btn btn--${program.ctaVariant} btn--full interactive-link`}
                 >
                   Daftar Program
                 </Link>
-              </article>
+              </TiltCard>
             </Reveal>
           ))}
         </div>

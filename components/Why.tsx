@@ -1,7 +1,14 @@
+"use client";
+
+import { motion } from "framer-motion";
 import Reveal from "@/components/Reveal";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { whyItems } from "@/lib/data";
+import { fadeUp, getTransition, staggerFast } from "@/lib/motion";
 
 export default function Why() {
+  const reduced = useReducedMotion();
+
   return (
     <section className="why section" id="keunggulan">
       <div className="container">
@@ -12,18 +19,47 @@ export default function Why() {
           </h2>
         </Reveal>
 
-        <div className="why__grid">
-          {whyItems.map((item, index) => (
-            <Reveal key={item.number} className="reveal-grid-item" delay={index * 80}>
-              <div className="why__card">
-                <div className="why__number">{item.number}</div>
+        <motion.div
+          className="why__grid"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2, margin: "-40px" }}
+          variants={staggerFast}
+        >
+          {whyItems.map((item) => (
+            <motion.div key={item.number} variants={fadeUp} transition={getTransition(reduced, 0.55)}>
+              <motion.div
+                className="why__card"
+                whileHover={
+                  reduced
+                    ? undefined
+                    : {
+                        y: -6,
+                        transition: { duration: 0.2, ease: "easeInOut" },
+                      }
+                }
+              >
+                <motion.div
+                  className="why__number"
+                  whileHover={
+                    reduced
+                      ? undefined
+                      : {
+                          scale: 1.08,
+                          color: "var(--color-teal)",
+                          transition: { duration: 0.18, ease: "easeInOut" },
+                        }
+                  }
+                >
+                  {item.number}
+                </motion.div>
                 <div className={`why__bar why__bar--${item.barColor}`} />
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
-              </div>
-            </Reveal>
+              </motion.div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,47 +1,29 @@
 "use client";
 
+import { motion } from "framer-motion";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import MagneticButton from "@/components/MagneticButton";
+import { useCounter } from "@/hooks/useCounter";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { heroStats } from "@/lib/data";
-
-function useCounter(target: number, active: boolean) {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    if (!active) return;
-
-    const duration = 2000;
-    const start = performance.now();
-
-    const step = (now: number) => {
-      const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      setCount(Math.floor(eased * target));
-      if (progress < 1) requestAnimationFrame(step);
-    };
-
-    requestAnimationFrame(step);
-  }, [target, active]);
-
-  return count;
-}
+import { fadeUp, getTransition, staggerContainer } from "@/lib/motion";
 
 function StatItem({
   count,
   suffix,
   label,
-  active,
 }: {
   count: number;
   suffix: string;
   label: string;
-  active: boolean;
 }) {
-  const value = useCounter(count, active);
+  const { ref, value } = useCounter(count, 1.8);
 
   return (
     <div className="hero__stat">
-      <span className="hero__stat-num">{value}</span>
+      <span className="hero__stat-num" ref={ref}>
+        {value}
+      </span>
       <span className="hero__stat-plus">{suffix}</span>
       <span className="hero__stat-label">{label}</span>
     </div>
@@ -49,79 +31,85 @@ function StatItem({
 }
 
 export default function Hero() {
-  const statsRef = useRef<HTMLDivElement>(null);
-  const [statsActive, setStatsActive] = useState(false);
-
-  useEffect(() => {
-    const el = statsRef.current;
-    if (!el) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setStatsActive(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.5 }
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
+  const reduced = useReducedMotion();
 
   return (
     <section className="hero" id="beranda">
       <div className="hero__bg">
-        <div className="hero__glow hero__glow--teal" />
-        <div className="hero__glow hero__glow--magenta" />
+        <motion.div
+          className="hero__glow hero__glow--teal"
+          animate={
+            reduced
+              ? undefined
+              : { x: [0, 20, -10, 0], y: [0, -15, 10, 0] }
+          }
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="hero__glow hero__glow--magenta"
+          animate={
+            reduced
+              ? undefined
+              : { x: [0, -15, 10, 0], y: [0, 20, -10, 0] }
+          }
+          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+        />
         <div className="hero__bars">
           <div className="hero__bar hero__bar--1" />
           <div className="hero__bar hero__bar--2" />
           <div className="hero__bar hero__bar--3" />
         </div>
+        <div className="hero__gradient-anim" aria-hidden="true" />
       </div>
 
-      <div className="container hero__content">
-        <div className="hero__badge">
+      <motion.div
+        className="container hero__content"
+        initial="hidden"
+        animate="visible"
+        variants={staggerContainer}
+      >
+        <motion.div className="hero__badge" variants={fadeUp} transition={getTransition(reduced, 0.5)}>
           <span className="hero__badge-dot" />
           Pendaftaran Gelombang Baru Dibuka
-        </div>
+        </motion.div>
 
-        <h1 className="hero__title">
+        <motion.h1 className="hero__title" variants={fadeUp} transition={getTransition(reduced, 0.6)}>
           Bangun Karier Digital
           <br />
           <span className="hero__title-accent">Bersama D&apos;Academy</span>
-        </h1>
+        </motion.h1>
 
-        <p className="hero__desc">
+        <motion.p className="hero__desc" variants={fadeUp} transition={getTransition(reduced, 0.6)}>
           Akademi digital terpercaya dengan kurikulum berbasis industri, mentor berpengalaman,
           dan metode pembelajaran yang terbukti membawa ribuan alumni sukses.
-        </p>
+        </motion.p>
 
-        <div className="hero__actions">
-          <Link href="#program" className="btn btn--primary">
+        <motion.div
+          className="hero__actions"
+          variants={fadeUp}
+          transition={getTransition(reduced, 0.6)}
+        >
+          <MagneticButton href="#program" className="btn btn--primary interactive-link">
             Jelajahi Program
-          </Link>
-          <Link href="#tentang" className="btn btn--outline">
+          </MagneticButton>
+          <Link href="#tentang" className="btn btn--outline interactive-link">
             Pelajari Lebih Lanjut
           </Link>
-        </div>
+        </motion.div>
 
-        <div className="hero__stats" ref={statsRef}>
+        <motion.div
+          className="hero__stats"
+          variants={fadeUp}
+          transition={getTransition(reduced, 0.6)}
+        >
           {heroStats.map((stat, index) => (
-            <div key={stat.label} style={{ display: "contents" }}>
+            <div key={stat.label} className="hero__stat-group">
               {index > 0 && <div className="hero__stat-divider" />}
-              <StatItem
-                count={stat.count}
-                suffix={stat.suffix}
-                label={stat.label}
-                active={statsActive}
-              />
+              <StatItem count={stat.count} suffix={stat.suffix} label={stat.label} />
             </div>
           ))}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
