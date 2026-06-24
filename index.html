@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="D'Academy — Akademi digital profesional untuk mengembangkan karier dan keterampilan masa depan Anda." />
+  <title>D'Academy — Akademi Digital Profesional</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#" class="nav__logo">
+        <img src="assets/logo.png" alt="D'Academy" class="nav__logo-img" />
+      </a>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__menu" id="navMenu">
+        <li><a href="#beranda" class="nav__link active">Beranda</a></li>
+        <li><a href="#tentang" class="nav__link">Tentang</a></li>
+        <li><a href="#program" class="nav__link">Program</a></li>
+        <li><a href="#keunggulan" class="nav__link">Keunggulan</a></li>
+        <li><a href="#testimoni" class="nav__link">Testimoni</a></li>
+        <li><a href="#kontak" class="nav__link nav__link--cta">Daftar Sekarang</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="beranda">
+    <div class="hero__bg">
+      <div class="hero__glow hero__glow--teal"></div>
+      <div class="hero__glow hero__glow--magenta"></div>
+      <div class="hero__bars">
+        <div class="hero__bar hero__bar--1"></div>
+        <div class="hero__bar hero__bar--2"></div>
+        <div class="hero__bar hero__bar--3"></div>
+      </div>
+    </div>
+    <div class="container hero__content">
+      <div class="hero__badge">
+        <span class="hero__badge-dot"></span>
+        Pendaftaran Gelombang Baru Dibuka
+      </div>
+      <h1 class="hero__title">
+        Bangun Karier Digital<br />
+        <span class="hero__title-accent">Bersama D'Academy</span>
+      </h1>
+      <p class="hero__desc">
+        Akademi digital terpercaya dengan kurikulum berbasis industri, mentor berpengalaman,
+        dan metode pembelajaran yang terbukti membawa ribuan alumni sukses.
+      </p>
+      <div class="hero__actions">
+        <a href="#program" class="btn btn--primary">Jelajahi Program</a>
+        <a href="#tentang" class="btn btn--outline">Pelajari Lebih Lanjut</a>
+      </div>
+      <div class="hero__stats">
+        <div class="hero__stat">
+          <span class="hero__stat-num" data-count="5000">0</span><span class="hero__stat-plus">+</span>
+          <span class="hero__stat-label">Alumni Aktif</span>
+        </div>
+        <div class="hero__stat-divider"></div>
+        <div class="hero__stat">
+          <span class="hero__stat-num" data-count="98">0</span><span class="hero__stat-plus">%</span>
+          <span class="hero__stat-label">Tingkat Kepuasan</span>
+        </div>
+        <div class="hero__stat-divider"></div>
+        <div class="hero__stat">
+          <span class="hero__stat-num" data-count="50">0</span><span class="hero__stat-plus">+</span>
+          <span class="hero__stat-label">Mitra Industri</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about section" id="tentang">
+    <div class="container about__grid">
+      <div class="about__visual">
+        <div class="about__card about__card--main">
+          <div class="about__growth-chart">
+            <div class="growth-bar growth-bar--1"><span>2022</span></div>
+            <div class="growth-bar growth-bar--2"><span>2023</span></div>
+            <div class="growth-bar growth-bar--3"><span>2024</span></div>
+            <div class="growth-bar growth-bar--4"><span>2025</span></div>
+          </div>
+          <p class="about__card-label">Pertumbuhan Alumni</p>
+        </div>
+        <div class="about__card about__card--float">
+          <div class="about__card-icon about__card-icon--teal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <div>
+            <strong>95%</strong>
+            <span>Lulusan Terserap Kerja</span>
+          </div>
+        </div>
+      </div>
+      <div class="about__text">
+        <span class="section__tag">Tentang Kami</span>
+        <h2 class="section__title">Membangun Talenta Digital <span class="text-teal">Masa Depan</span></h2>
+        <p class="about__desc">
+          D'Academy didirikan dengan visi menjadi pusat pembelajaran digital terdepan di Indonesia.
+          Kami menggabungkan teori mendalam dengan praktik langsung agar setiap peserta siap bersaing
+          di industri teknologi yang terus berkembang.
+        </p>
+        <ul class="about__features">
+          <li>
+            <div class="about__feature-icon about__feature-icon--magenta">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <div>
+              <strong>Kurikulum Industri</strong>
+              <p>Materi selalu diperbarui sesuai kebutuhan pasar kerja terkini.</p>
+            </div>
+          </li>
+          <li>
+            <div class="about__feature-icon about__feature-icon--orange">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div>
+              <strong>Mentor Praktisi</strong>
+              <p>Belajar langsung dari profesional yang aktif di industri.</p>
+            </div>
+          </li>
+          <li>
+            <div class="about__feature-icon about__feature-icon--teal">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            </div>
+            <div>
+              <strong>Karier Terjamin</strong>
+              <p>Dukungan job placement dan jaringan alumni yang luas.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs -->
+  <section class="programs section" id="program">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__tag">Program Kami</span>
+        <h2 class="section__title">Pilih Jalur <span class="text-orange">Pembelajaran</span> Anda</h2>
+        <p class="section__subtitle">Program intensif dirancang untuk membawa Anda dari pemula hingga siap kerja dalam waktu singkat.</p>
+      </div>
+      <div class="programs__grid">
+        <article class="program-card">
+          <div class="program-card__icon program-card__icon--teal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <span class="program-card__badge">Terpopuler</span>
+          <h3 class="program-card__title">Full-Stack Web Development</h3>
+          <p class="program-card__desc">Kuasai HTML, CSS, JavaScript, React, Node.js, dan database. Bangun aplikasi web dari nol hingga deploy.</p>
+          <ul class="program-card__meta">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 6 Bulan</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 24 Sesi Live</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Sertifikat</li>
+          </ul>
+          <div class="program-card__progress">
+            <div class="program-card__progress-label"><span>Progress Kurikulum</span><span>85%</span></div>
+            <div class="program-card__progress-bar"><div class="program-card__progress-fill" style="width:85%"></div></div>
+          </div>
+          <a href="#kontak" class="btn btn--primary btn--full">Daftar Program</a>
+        </article>
+
+        <article class="program-card program-card--featured">
+          <div class="program-card__icon program-card__icon--magenta">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </div>
+          <span class="program-card__badge program-card__badge--featured">Rekomendasi</span>
+          <h3 class="program-card__title">UI/UX Design & Product</h3>
+          <p class="program-card__desc">Pelajari riset pengguna, wireframing, prototyping, dan desain sistem. Buat portfolio yang menonjol.</p>
+          <ul class="program-card__meta">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 Bulan</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 20 Sesi Live</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Sertifikat</li>
+          </ul>
+          <div class="program-card__progress">
+            <div class="program-card__progress-label"><span>Progress Kurikulum</span><span>92%</span></div>
+            <div class="program-card__progress-bar"><div class="program-card__progress-fill program-card__progress-fill--magenta" style="width:92%"></div></div>
+          </div>
+          <a href="#kontak" class="btn btn--magenta btn--full">Daftar Program</a>
+        </article>
+
+        <article class="program-card">
+          <div class="program-card__icon program-card__icon--orange">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+          </div>
+          <span class="program-card__badge">Baru</span>
+          <h3 class="program-card__title">Data Science & AI</h3>
+          <p class="program-card__desc">Analisis data, machine learning, dan AI generatif. Siapkan diri untuk profesi paling diminati era digital.</p>
+          <ul class="program-card__meta">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 8 Bulan</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 32 Sesi Live</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Sertifikat</li>
+          </ul>
+          <div class="program-card__progress">
+            <div class="program-card__progress-label"><span>Progress Kurikulum</span><span>78%</span></div>
+            <div class="program-card__progress-bar"><div class="program-card__progress-fill program-card__progress-fill--orange" style="width:78%"></div></div>
+          </div>
+          <a href="#kontak" class="btn btn--primary btn--full">Daftar Program</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Us -->
+  <section class="why section" id="keunggulan">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__tag">Keunggulan</span>
+        <h2 class="section__title">Mengapa Memilih <span class="text-magenta">D'Academy?</span></h2>
+      </div>
+      <div class="why__grid">
+        <div class="why__card">
+          <div class="why__number">01</div>
+          <div class="why__bar why__bar--magenta"></div>
+          <h3>Metode Belajar Hybrid</h3>
+          <p>Kombinasi sesi live interaktif, materi on-demand, dan project-based learning untuk pemahaman maksimal.</p>
+        </div>
+        <div class="why__card">
+          <div class="why__number">02</div>
+          <div class="why__bar why__bar--orange"></div>
+          <h3>Project Portfolio Nyata</h3>
+          <p>Setiap peserta menyelesaikan minimal 3 project nyata yang bisa langsung ditampilkan di portfolio profesional.</p>
+        </div>
+        <div class="why__card">
+          <div class="why__number">03</div>
+          <div class="why__bar why__bar--teal"></div>
+          <h3>Komunitas Alumni Aktif</h3>
+          <p>Bergabung dengan jaringan 5.000+ alumni yang saling mendukung, berbagi lowongan, dan berkolaborasi.</p>
+        </div>
+        <div class="why__card">
+          <div class="why__number">04</div>
+          <div class="why__bar why__bar--magenta"></div>
+          <h3>Garansi Uang Kembali</h3>
+          <p>Tidak puas dalam 14 hari pertama? Kami kembalikan 100% biaya pendaftaran Anda, tanpa pertanyaan.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials section" id="testimoni">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__tag">Testimoni</span>
+        <h2 class="section__title">Kata <span class="text-teal">Alumni</span> Kami</h2>
+      </div>
+      <div class="testimonials__grid">
+        <blockquote class="testimonial-card">
+          <div class="testimonial-card__stars">★★★★★</div>
+          <p>"D'Academy mengubah hidup saya. Dari nol pengalaman coding, sekarang saya bekerja sebagai Full-Stack Developer di startup unicorn."</p>
+          <footer>
+            <div class="testimonial-card__avatar testimonial-card__avatar--teal">AR</div>
+            <div>
+              <strong>Ahmad Rizki</strong>
+              <span>Full-Stack Developer @ Gojek</span>
+            </div>
+          </footer>
+        </blockquote>
+        <blockquote class="testimonial-card testimonial-card--featured">
+          <div class="testimonial-card__stars">★★★★★</div>
+          <p>"Program UI/UX-nya sangat komprehensif. Mentor-mentornya sabar dan portfolio yang saya buat langsung diterima di 3 perusahaan besar."</p>
+          <footer>
+            <div class="testimonial-card__avatar testimonial-card__avatar--magenta">SN</div>
+            <div>
+              <strong>Siti Nurhaliza</strong>
+              <span>Product Designer @ Tokopedia</span>
+            </div>
+          </footer>
+        </blockquote>
+        <blockquote class="testimonial-card">
+          <div class="testimonial-card__stars">★★★★★</div>
+          <p>"Investasi terbaik yang pernah saya lakukan. Kurikulum Data Science-nya up-to-date dan langsung applicable di pekerjaan saya."</p>
+          <footer>
+            <div class="testimonial-card__avatar testimonial-card__avatar--orange">DP</div>
+            <div>
+              <strong>Dewa Putra</strong>
+              <span>Data Analyst @ BCA Digital</span>
+            </div>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / Contact -->
+  <section class="cta section" id="kontak">
+    <div class="container">
+      <div class="cta__wrapper">
+        <div class="cta__content">
+          <span class="section__tag">Mulai Sekarang</span>
+          <h2 class="section__title">Siap Memulai<br />Perjalanan <span class="text-orange">Digital</span> Anda?</h2>
+          <p>Daftarkan diri Anda sekarang dan dapatkan konsultasi karier gratis bersama tim akademik kami.</p>
+          <ul class="cta__perks">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Konsultasi karier gratis
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Akses materi preview
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Diskon early bird 20%
+            </li>
+          </ul>
+        </div>
+        <form class="cta__form" id="contactForm">
+          <h3>Form Pendaftaran</h3>
+          <div class="form-group">
+            <label for="nama">Nama Lengkap</label>
+            <input type="text" id="nama" name="nama" placeholder="Masukkan nama Anda" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="nama@email.com" required />
+          </div>
+          <div class="form-group">
+            <label for="program">Program Pilihan</label>
+            <select id="program" name="program" required>
+              <option value="" disabled selected>Pilih program</option>
+              <option value="web">Full-Stack Web Development</option>
+              <option value="uiux">UI/UX Design & Product</option>
+              <option value="data">Data Science & AI</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="pesan">Pesan (Opsional)</label>
+            <textarea id="pesan" name="pesan" rows="3" placeholder="Ceritakan tujuan belajar Anda..."></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary btn--full">Kirim Pendaftaran</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <img src="assets/logo.png" alt="D'Academy" class="footer__logo" />
+        <p>Akademi digital profesional untuk membangun karier masa depan Anda di era teknologi.</p>
+        <div class="footer__social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></a>
+        </div>
+      </div>
+      <div class="footer__links">
+        <h4>Program</h4>
+        <ul>
+          <li><a href="#program">Web Development</a></li>
+          <li><a href="#program">UI/UX Design</a></li>
+          <li><a href="#program">Data Science & AI</a></li>
+        </ul>
+      </div>
+      <div class="footer__links">
+        <h4>Perusahaan</h4>
+        <ul>
+          <li><a href="#tentang">Tentang Kami</a></li>
+          <li><a href="#keunggulan">Keunggulan</a></li>
+          <li><a href="#testimoni">Testimoni</a></li>
+          <li><a href="#kontak">Kontak</a></li>
+        </ul>
+      </div>
+      <div class="footer__links">
+        <h4>Kontak</h4>
+        <ul>
+          <li>info@dacademy.id</li>
+          <li>+62 812-3456-7890</li>
+          <li>Jakarta, Indonesia</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom container">
+      <p>&copy; 2025 D'Academy. All rights reserved.</p>
+      <div class="footer__bottom-links">
+        <a href="#">Kebijakan Privasi</a>
+        <a href="#">Syarat & Ketentuan</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
